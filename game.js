@@ -30,6 +30,9 @@ function playRound(computerChoice, userChoice){
     else if (computerChoice === "scissors" && userChoice === "paper"){
         return "You Lose! Scissors beats Paper";
     }
+    else {
+        return "Invalid Play";
+    }
 }
 
 
@@ -41,7 +44,7 @@ function playRound(computerChoice, userChoice){
 function game(){
     let userScore = 0;
     let computerScore = 0;
-    for (let i = 0; i <= 5; i++){
+    for (let i = 0; i < 5; i++){
         let userChoice = prompt("What is your play? ").toLowerCase();
         let computerChoice = getComputerChoice().toLowerCase();
         let round = playRound(computerChoice, userChoice);
@@ -55,6 +58,14 @@ function game(){
         }
         console.log(computerScore);
         console.log(userScore);
+        
+    }
+    if (userScore === computerScore){
+        return "Tie";
+    }
+    else
+    {
+    console.log(`Overall Winner is ${userScore > computerScore ? "User": "Computer"}`);
     }
 }
 
